@@ -53,21 +53,43 @@
  *   removeRationCard(registry, "RC001")    // => true
  */
 export function getFamilyNames(registry) {
-  // Your code here
+  if(typeof(registry)==="object" && registry !== null && !Array.isArray(registry)){
+    return Object.keys(registry);
+  }
+  return [];
 }
 
 export function getAllFamilies(registry) {
-  // Your code here
+  if(typeof(registry)==="object" && registry !== null && !Array.isArray(registry)){
+    return Object.values(registry);
+  }
+  return [];
 }
 
 export function getRationCardEntries(registry) {
-  // Your code here
+  if(typeof registry ==="object" && registry !== null && !Array.isArray(registry)){
+    return Object.entries(registry);
+  }
+  return [];
 }
 
 export function hasRationCard(registry, cardId) {
-  // Your code here
+  if(typeof registry ==="object" && registry !== null && typeof cardId==="string"&& !Array.isArray(registry)){
+    return registry.hasOwnProperty(cardId);
+  }
+  return false;
 }
 
 export function removeRationCard(registry, cardId) {
-  // Your code here
+   if(typeof registry ==="object" && registry!==null && typeof cardId==="string"&& !Array.isArray(registry)){
+    if(registry.hasOwnProperty(cardId)){
+      delete registry[cardId];
+      return true;
+
+    }
+    return false;
+
+   }
+   return false;
+
 }
